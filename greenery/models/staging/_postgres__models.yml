@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: _postgres__addresses
+    description: "a model with users addresses"
+
+  - name: _postgres__events
+    description: "a model with users events"
+
+  - name: _postgres__orders
+    description: "a model with users orders"
+
+  - name: _postgres__order_items
+    description: "a model with users order items"
+
+  - name: _postgres__products
+    description: "a model with users products"
+
+  - name: _postgres__promos
+    description: "a model with users promos"
+
+  - name: _postgres__users
+    description: "a model with user data"
