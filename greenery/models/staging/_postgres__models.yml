@@ -1,11 +1,49 @@
 version: 2
 
 models:
-  - name: _postgres__addresses
+  - name: stg_postgres__addresses
     description: "a model with users addresses"
 
-  - name: _postgres__events
+    columns:
+      - name: address_id
+        description: 'unique id for addresses'
+
+      - name: address
+        description: 'addresses information'
+
+      - name: zipcode
+        description: 'zipcode information'
+
+      - name: state
+        description: 'state information'
+
+      - name: country
+        description: 'country information'
+
+
+  - name: stg_postgres__events
     description: "a model with users events"
+
+    columns:
+    - name: event_id
+      tests:
+        - not_null
+        - unique
+  
+    - name: user_id
+      tests:
+        - relationships:
+            to: ref('stg_postgres__users')
+            field: user_id
+
+    - name: event_type
+      tests:
+        - accepted_values:
+            values:
+              - checkout
+              - package_shipped
+              - add_to_cart
+              - page_view
 
   - name: _postgres__orders
     description: "a model with users orders"
